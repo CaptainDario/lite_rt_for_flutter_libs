@@ -1,4 +1,4 @@
-name: All - Deploy
+name: Build macos libs
 
 # Controls when the workflow will run
 on:
