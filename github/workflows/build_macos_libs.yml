@@ -1,0 +1,55 @@
+name: All - Deploy
+
+# Controls when the workflow will run
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      include_rui_matrix_multiplication:
+        description: "Include RUI matrix multiplication"
+        type       : choice
+        required   : true
+        default    : "no"
+        options    :
+        - "yes"
+        - "no"
+      include_open_cl_multiplication:
+        description: "Include open cl delegate"
+        type       : choice
+        required   : true
+        default    : "no"
+        options    :
+        - "yes"
+        - "no"
+      include_metal_multiplication:
+        description: "Include metal delegate"
+        type       : choice
+        required   : true
+        default    : "no"
+        options    :
+        - "yes"
+        - "no"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+
+    # The type of runner that the job will run on
+    runs-on: macos-13
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v4
+        with:
+          submodules: 'true'
+
+      - name: build tf lite
+        run: |
+          mkdir tflite_build
+          cd tflite_build
+          cmake ../tensorflow/tensorflow/lite -DTFLITE_ENABLE_GPU=ON -DTFLITE_ENABLE_RUY=ON
+          cmake --build . -j
+
+
