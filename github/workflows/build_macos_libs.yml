@@ -45,6 +45,12 @@ jobs:
         with:
           submodules: 'true'
 
+      - name: chechout desired tf branch
+        run: |
+          cd tensorflow
+          git fetch
+          git checkout r2.18
+
       - name: build tf lite
         run: |
           mkdir tflite_build
