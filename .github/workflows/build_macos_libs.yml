@@ -56,7 +56,7 @@ jobs:
         run: |
           mkdir tflite_build
           cd tflite_build
-          cmake ../tensorflow/tensorflow/lite -DTFLITE_ENABLE_GPU=ON -DTFLITE_ENABLE_RUY=ON
+          cmake ../tensorflow/tensorflow/lite
           cmake --build . -j
 
 
