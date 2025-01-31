@@ -13,7 +13,7 @@ on:
         options    :
         - "yes"
         - "no"
-      include_open_cl_multiplication:
+      include_open_cl:
         description: "Include open cl delegate"
         type       : choice
         required   : true
@@ -21,7 +21,7 @@ on:
         options    :
         - "yes"
         - "no"
-      include_metal_multiplication:
+      include_metal:
         description: "Include metal delegate"
         type       : choice
         required   : true
@@ -49,6 +49,7 @@ jobs:
         run: |
           cd tensorflow
           git fetch
+          git fetch --tags
           git checkout v2.18.0
 
       - name: build tf lite
