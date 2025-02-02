@@ -58,11 +58,24 @@ jobs:
           run: ./build_tf_lite_mac.sh
         - name: Build TF Lite gpu delegate
           run: ./build_tf_lite_gpu_delegate_mac.sh
+        - name: Build TF Lite flex delegate
+          run: ./build_tf_lite_flex_delegate_mac.sh
 
         # TODO run test
 
+        # upload the build libs as an artifact
         - name: upload library to artifacts
           uses: actions/upload-artifact@v4
           with:
             name: libtensorflowlite_c.dylib
             path: ./tensorflow/libtensorflowlite_c.dylib
+        - name: upload library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: tensorflow_lite_gpu_dylib.dylib
+            path: ./tensorflow/tensorflow_lite_gpu_dylib.dylib
+        - name: upload library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: libtensorflowlite_flex.dylib
+            path: ./tensorflow/libtensorflowlite_flex.dylib
