@@ -64,4 +64,4 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: libtensorflowlite_c.dylib
-            path: ./bazel-out//darwin_arm64-opt/bin/tensorflow/lite/c/libtensorflowlite_c.dylib
+            path: ./tensorflow/bazel-out//darwin_arm64-opt/bin/tensorflow/lite/c/libtensorflowlite_c.dylib
