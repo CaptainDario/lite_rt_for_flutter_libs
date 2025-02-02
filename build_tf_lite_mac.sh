@@ -22,7 +22,9 @@ bazelisk clean
 #  //tensorflow/lite/delegates/gpu:tensorflow_lite_gpu_dylib \
 #  --apple_platform_type=macos
 
-bazelisk build -c opt //tensorflow/lite/c:tensorflowlite_c
+bazelisk build -c opt \
+  --repo_env=HERMETIC_PYTHON_VERSION=3.11 \
+  //tensorflow/lite/c:tensorflowlite_c
 
 find ./bazel-out/ -type f -name "*.dylib"
 
