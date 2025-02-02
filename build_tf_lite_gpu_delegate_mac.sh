@@ -13,11 +13,17 @@ cd tensorflow
 bazelisk clean
 
 bazelisk build -c opt \
+  --copt -Os \
   --repo_env=HERMETIC_PYTHON_VERSION=3.11 \
-  //tensorflow/lite/c:tensorflowlite_c
+  --copt -DTFLITE_GPU_BINARY_RELEASE \
+  --copt -fvisibility=hidden \
+  --linkopt -s \
+  --strip always \
+  --cxxopt=-std=c++17 \
+  //tensorflow/lite/delegates/gpu:tensorflow_lite_gpu_dylib \
+  --apple_platform_type=macos
 
 find ./bazel-out/ -type f -name "*.dylib"
 
-cp ./bazel-out//darwin_arm64-opt/bin/tensorflow/lite/c/libtensorflowlite_c.dylib ./
 
 
