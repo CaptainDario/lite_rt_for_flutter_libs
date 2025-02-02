@@ -57,3 +57,11 @@ jobs:
         - name: Build TF Lite
           run: |
             ./build_tf_lite_mac.sh
+
+        # TODO run test
+
+        - name: upload library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: libtensorflowlite_c.dylib
+            path: ./bazel-out//darwin_arm64-opt/bin/tensorflow/lite/c/libtensorflowlite_c.dylib
