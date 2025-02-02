@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: MacOS - Test and Build
+name: Build Macos
 
 # Controls when the workflow will run
 on:
@@ -47,11 +47,13 @@ jobs:
             python-version: '3.11'
             
         # checkout tensorflow version
-        - run: |
+        - name: Checkout tensorflow
+          run: |
             cd tensorflow
             git fetch --tags
             git checkout ${{ github.event.inputs.tf_version }}
 
         # build tf lite
-        - run: |
+        - name: Build TF Lite
+          run: |
             ./build_tf_lite_mac.sh
