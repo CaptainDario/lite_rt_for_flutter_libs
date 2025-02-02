@@ -1,0 +1,57 @@
+# This is a basic workflow to help you get started with Actions
+
+name: MacOS - Test and Build
+
+# Controls when the workflow will run
+on:
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      tf_version: 
+        description: 'TensorFlow version to use (e.g., 2.18.0)'
+        required: true
+        default: '2.18.0'
+        type: string
+
+  # allows that other workflows can run this one
+  workflow_call:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: macos-13
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+        - uses: actions/checkout@v4
+          with:
+            submodules: true
+
+        # setup bazel
+        - uses: bazel-contrib/setup-bazel@0.13.0
+          with:
+            # Avoid downloading Bazel every time.
+            bazelisk-cache: true
+            # Store build cache per workflow.
+            disk-cache: ${{ github.workflow }}
+            # Share repository cache between workflows.
+            repository-cache: true
+
+        # setup python 3.11
+        - uses: actions/setup-python@v5
+          with:
+            python-version: '3.11'
+            
+        # checkout tensorflow version
+        - run: |
+            cd tensorflow
+            git fetch --tags
+            git checkout ${{ github.event.inputs.tf_version }}
+
+        # build tf lite
+        - run: |
+            ./build_tf_lite_mac.sh
