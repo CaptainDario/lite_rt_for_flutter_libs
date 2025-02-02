@@ -1,2 +1,4 @@
 # dynamic libraries
 *.dylib
+*.so
+*.dll
