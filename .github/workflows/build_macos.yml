@@ -11,7 +11,7 @@ on:
       tf_version: 
         description: 'TensorFlow version to use (e.g., 2.18.0)'
         required: true
-        default: '2.18.0'
+        default: 'v2.18.0'
         type: string
 
   # allows that other workflows can run this one
