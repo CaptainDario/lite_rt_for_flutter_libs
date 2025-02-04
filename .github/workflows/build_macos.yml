@@ -68,14 +68,14 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: libtensorflowlite_c.dylib
-            path: ./tensorflow/libtensorflowlite_c.dylib
+            path: ./tensorflow/libtensorflowlite_arm64_c.dylib
         - name: upload gpu library to artifacts
           uses: actions/upload-artifact@v4
           with:
             name: tensorflow_lite_gpu_dylib.dylib
-            path: ./tensorflow/tensorflow_lite_gpu_dylib.dylib
+            path: ./tensorflow/tensorflowlite_arm64_gpu.dylib
         - name: upload flex library to artifacts
           uses: actions/upload-artifact@v4
           with:
             name: libtensorflowlite_flex.dylib
-            path: ./tensorflow/libtensorflowlite_flex.dylib
+            path: ./tensorflow/libtensorflowlite_arm64_flex.dylib

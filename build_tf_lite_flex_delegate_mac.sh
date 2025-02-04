@@ -8,5 +8,5 @@ bazelisk build -c opt \
 
 find ./bazel-out/ -type f -name "*.dylib"
 
-cp $(find ./bazel-out/ -type f -name "*.dylib") ./
+cp $(find ./bazel-out/ -type f -name "*.dylib") ./libtensorflowlite_arm64_flex.dylib
 
