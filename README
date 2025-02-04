@@ -1,0 +1,3 @@
+# LiteRT for Flutter Libs
+
+Building and bundling of TF Lite libs for use with [lite_rt_for_flutter](https://github.com/CaptainDario/lite_rt_for_flutter).
