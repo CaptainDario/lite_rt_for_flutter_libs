@@ -55,7 +55,7 @@ jobs:
 
         # build tf lite
         - name: Build TF Lite base
-          shell: cmd
+          #shell: cmd
           run: ./build_tf_lite_windows.bat
         #- name: Build TF Lite gpu delegate
         #  run: ./build_tf_lite_gpu_delegate_mac.sh
