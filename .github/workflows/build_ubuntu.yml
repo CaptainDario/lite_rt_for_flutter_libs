@@ -64,11 +64,11 @@ jobs:
         # TODO run test
 
         # upload the build libs as an artifact
-        #- name: upload base library to artifacts
-        #  uses: actions/upload-artifact@v4
-        #  with:
-        #    name: libtensorflowlite_c.dylib
-        #    path: ./tensorflow/libtensorflowlite_arm64_c.dylib
+        - name: upload base library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: libtensorflowlite_x86_c.dll
+            path: ./tensorflow/libtensorflowlite_x86_c.dll
         #- name: upload gpu library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:
