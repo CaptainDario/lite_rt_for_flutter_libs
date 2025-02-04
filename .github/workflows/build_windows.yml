@@ -56,7 +56,10 @@ jobs:
         # build tf lite
         - name: Build TF Lite base
           #shell: cmd
-          run: ./build_tf_lite_windows.bat
+          run: | #./build_tf_lite_windows.bat
+            cd tensorflow
+            bazelisk clean
+            bazelisk build -c opt --repo_env=HERMETIC_PYTHON_VERSION=3.11 //tensorflow/lite/c:tensorflowlite_c
         #- name: Build TF Lite gpu delegate
         #  run: ./build_tf_lite_gpu_delegate_mac.sh
         #- name: Build TF Lite flex delegate
