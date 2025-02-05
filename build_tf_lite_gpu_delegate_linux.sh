@@ -7,7 +7,7 @@ bazel build -c opt \
   --copt -DEGL_NO_X11 \
   tensorflow/lite/delegates/gpu:delegate
 
-find ./bazel-out/ -type f -name "*.dylib"
+find ./bazel-out/ -type f -name "*.so"
 
-cp $(find ./bazel-out/ -type f -name "*.dylib") ./tensorflowlite_arm64_gpu.dylib
+cp $(find ./bazel-out/ -type f -name "*.so") ./tensorflowlite_gpu_x86.so
 
