@@ -66,18 +66,18 @@ jobs:
         # TODO run test
 
         # upload the build libs as an artifact
-        - name: upload base library to artifacts
-          uses: actions/upload-artifact@v4
-          with:
-            name: libtensorflowlite_x86.so
-            path: ./tensorflow/libtensorflowlite_x86.so
-        #- name: upload gpu library to artifacts
+        #- name: upload base library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:
-        #    name: tensorflow_lite_gpu_dylib.so
-        #    path: ./tensorflow/tensorflowlite_arm64_gpu.so
-        - name: upload flex library to artifacts
+        #    name: libtensorflowlite_x86.so
+        #    path: ./tensorflow/libtensorflowlite_x86.so
+        - name: upload gpu library to artifacts
           uses: actions/upload-artifact@v4
           with:
-            name: libtensorflowlite_flex_x86.so
-            path: ./tensorflow/libtensorflowlite_flex_x86.so
+            name: tensorflowlite_gpu_x86.so
+            path: ./tensorflow/tensorflowlite_gpu_x86.so
+        #- name: upload flex library to artifacts
+        #  uses: actions/upload-artifact@v4
+        #  with:
+        #    name: libtensorflowlite_flex_x86.so
+        #    path: ./tensorflow/libtensorflowlite_flex_x86.so
