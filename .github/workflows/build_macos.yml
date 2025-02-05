@@ -67,7 +67,7 @@ jobs:
         - name: upload base library to artifacts
           uses: actions/upload-artifact@v4
           with:
-            name: libtensorflowlite_arm64_c.dylib
+            name: libtensorflowlite_arm64.dylib
             path: ./tensorflow/libtensorflowlite_arm64_c.dylib
         - name: upload gpu library to artifacts
           uses: actions/upload-artifact@v4
