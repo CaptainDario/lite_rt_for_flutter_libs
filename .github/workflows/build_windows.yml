@@ -60,8 +60,8 @@ jobs:
             cd tensorflow
             bazelisk clean
             bazelisk build -c opt --repo_env=HERMETIC_PYTHON_VERSION=3.11 //tensorflow/lite/c:tensorflowlite_c
-            find bazel-bin -type f -name "*.dll" -r
-            find bazel-out -type f -name "*.dll" -r
+            find bazel-bin -type f -name "*.dll"
+            find bazel-out -type f -name "*.dll"
             cp $(find bazel-bin -type f -name "*.dll") ./libtensorflowlite_arm64_c.dll
         #- name: Build TF Lite gpu delegate
         #  run: ./build_tf_lite_gpu_delegate_mac.sh
