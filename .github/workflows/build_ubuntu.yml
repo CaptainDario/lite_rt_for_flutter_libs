@@ -57,9 +57,9 @@ jobs:
         - name: Build TF Lite base
           run: ./build_tf_lite_linux.sh
         #- name: Build TF Lite gpu delegate
-        #  run: ./build_tf_lite_gpu_delegate_mac.sh
-        #- name: Build TF Lite flex delegate
-        #  run: ./build_tf_lite_flex_delegate_mac.sh
+        #  run: ./build_tf_lite_gpu_delegate_linux.sh
+        - name: Build TF Lite flex delegate
+          run: ./build_tf_lite_flex_delegate_linux.sh
 
         # TODO run test
 
@@ -67,15 +67,15 @@ jobs:
         - name: upload base library to artifacts
           uses: actions/upload-artifact@v4
           with:
-            name: libtensorflowlite_x86_c.so
-            path: ./tensorflow/libtensorflowlite_x86_c.so
+            name: libtensorflowlite_x86.so
+            path: ./tensorflow/libtensorflowlite_x86.so
         #- name: upload gpu library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:
-        #    name: tensorflow_lite_gpu_dylib.dylib
-        #    path: ./tensorflow/tensorflowlite_arm64_gpu.dylib
-        #- name: upload flex library to artifacts
-        #  uses: actions/upload-artifact@v4
-        #  with:
-        #    name: libtensorflowlite_flex.dylib
-        #    path: ./tensorflow/libtensorflowlite_arm64_flex.dylib
+        #    name: tensorflow_lite_gpu_dylib.so
+        #    path: ./tensorflow/tensorflowlite_arm64_gpu.so
+        - name: upload flex library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: libtensorflowlite_flex_x86.so
+            path: ./tensorflow/libtensorflowlite_flex_x86.so
