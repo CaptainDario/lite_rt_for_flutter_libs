@@ -58,7 +58,7 @@ jobs:
         #  run: ./build_tf_lite_linux.sh
         - name: Build TF Lite gpu delegate
           run: |
-            install mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev mesa-utils
+            sudo apt install mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev mesa-utils
             ./build_tf_lite_gpu_delegate_linux.sh
         #- name: Build TF Lite flex delegate
         #  run: ./build_tf_lite_flex_delegate_linux.sh
