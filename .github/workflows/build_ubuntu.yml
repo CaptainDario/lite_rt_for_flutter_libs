@@ -25,9 +25,11 @@ jobs:
     runs-on: ${{ matrix.runner }}
     strategy:
       matrix:
-        runner: [ubuntu-24.04, ubuntu-24.04-arm]
-        arch: ["x86", "arm64"]
-
+        runner: 
+          - os: ubuntu-24.04
+            env: ARCH=x86
+          - os: ubuntu-24.04-arm
+            env: ARCH=arm64
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -60,7 +62,7 @@ jobs:
         # build tf lite
         - name: Build TF Lite base
           env:
-            ARCH: ${{ matrix.arch }}
+            ARCH: ${{ matrix.runner.env.ARCH }}
           run: ./build_tf_lite_linux.sh
         #- name: Build TF Lite gpu delegate
         #  run: |
