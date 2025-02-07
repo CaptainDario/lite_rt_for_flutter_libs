@@ -9,14 +9,6 @@ bazelisk build -c opt \
 find ./bazel-out/ -type f -name "*.so"
 
 # rename and copy the output based on the current system
-if [[ "${RUNNER_ARCHITECTURE}" == "x64" ]]; then
-    arch="x86"
-elif [[ "${RUNNER_ARCHITECTURE}" == "arm64" ]]; then
-    arch="arm64"
-else
-    echo "Unsupported architecture: ${RUNNER_ARCHITECTURE}"
-    exit 1
-fi
 cp $(find ./bazel-out/ -type f -name "*.so") "./libtensorflowlite_${arch}_c.so"
 
 
