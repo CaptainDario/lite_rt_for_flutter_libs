@@ -28,6 +28,22 @@ A new Flutter FFI plugin project.
 
   s.dependency 'FlutterMacOS'
 
+  # Script Phase to copy the correct library at build time
+  s.script_phase = {
+    :name => 'Select TensorFlow Lite Library',
+    :execution_position => :before_compile,
+    :script => <<-SCRIPT
+      ARCH=$(uname -m)
+      if [ "$ARCH" = "arm64" ]; then
+        cp -f "${PODS_TARGET_SRCROOT}/libtensorflowlite_arm64_c.dylib" "${PODS_TARGET_SRCROOT}/libtensorflowlite_c.dylib"
+      else
+        cp -f "${PODS_TARGET_SRCROOT}/libtensorflowlite_x86_c.dylib" "${PODS_TARGET_SRCROOT}/libtensorflowlite_c.dylib"
+      fi
+    SCRIPT
+  }
+  s.vendored_libraries = 'libtensorflowlite_c.dylib'
+  s.static_framework = true
+
   s.platform = :osx, '10.11'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
