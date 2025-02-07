@@ -62,7 +62,7 @@ jobs:
         # build tf lite
         - name: Build TF Lite base
           env:
-            ARCH: ${{ matrix.runner.env.ARCH }}
+            ARCH: ${{ env.ARCH }}
           run: ./build_tf_lite_linux.sh
         #- name: Build TF Lite gpu delegate
         #  run: |
