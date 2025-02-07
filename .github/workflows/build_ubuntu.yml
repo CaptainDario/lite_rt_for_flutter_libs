@@ -87,7 +87,7 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: libtensorflowlite_x86.so
-            path: ./tensorflow/libtensorflowlite_x86.so
+            path: ./tensorflow/libtensorflowlite_${ARCH}_c.so
         #- name: upload gpu library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:
