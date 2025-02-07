@@ -30,12 +30,19 @@ jobs:
             env: ARCH=x86
           - os: ubuntu-24.04-arm
             env: ARCH=arm64
+
+    env:
+      ARCH: ${{ matrix.runner.arch }}
+
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - uses: actions/checkout@v4
           with:
             submodules: true
+        
+        - name: test
+          run: echo ${{ env.ARCH }}
 
         # setup bazel
         - uses: bazel-contrib/setup-bazel@0.13.0
