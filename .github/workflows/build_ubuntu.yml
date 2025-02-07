@@ -32,7 +32,7 @@ jobs:
             env: ARCH=arm64
 
     env:
-      ARCH: ${{ matrix.runner.arch }}
+      ARCH: ${{ matrix.runner.env.arch }}
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
