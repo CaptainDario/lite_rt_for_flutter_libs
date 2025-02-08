@@ -1,3 +1,17 @@
 # LiteRT for Flutter Libs
 
-Building and bundling of TF Lite libs for use with [lite_rt_for_flutter](https://github.com/CaptainDario/lite_rt_for_flutter).
+This repo contains the binaries and flutter libs to automatically include tf lite (delegate) binaries in a Flutter app.
+
+## Packages
+
+* lite_rt_for_flutter_libs
+* lite_rt_for_flutter_libs_core_ml_delegate
+* lite_rt_for_flutter_libs_flex_delegate
+* lite_rt_for_flutter_libs_gpu_delegate
+
+See [lite_rt_for_flutter](https://github.com/CaptainDario/lite_rt_for_flutter) for usage instructions.
+
+## Building
+
+The build scripts are at the top level of this repository and start with `build_tf_lite_`.
+To keep this package up to date, GitHub actions are used for building the libraries.
