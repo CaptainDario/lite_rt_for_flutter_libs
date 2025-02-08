@@ -4,7 +4,7 @@ This repo contains the binaries and flutter libs to automatically include tf lit
 
 ## Packages
 
-* lite_rt_for_flutter_libs
+* lite_rt_for_flutter_libs (contains the base LiteRT and XNNPack delegate)
 * lite_rt_for_flutter_libs_core_ml_delegate
 * lite_rt_for_flutter_libs_flex_delegate
 * lite_rt_for_flutter_libs_gpu_delegate
