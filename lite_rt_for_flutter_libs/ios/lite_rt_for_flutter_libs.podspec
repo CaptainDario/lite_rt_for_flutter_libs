@@ -22,23 +22,12 @@ A new Flutter FFI plugin project.
   s.dependency 'Flutter'
   s.platform = :ios, '12.0'
 
-  tflite_version = '~> 0.0.1-nightly'
+  tflite_version = '2.17.0'
   s.dependency 'TensorFlowLiteSwift', tflite_version
-
-  s.dependency 'TensorFlowLiteSelectTfOps', tflite_version
   s.static_framework = true
 
   # Flutter.framework does not contain a i386 slice.
-  s.pod_target_xcconfig = {
-    'DEFINES_MODULE' => 'YES',
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',
-  }
-  s.user_target_xcconfig = {
-    'OTHER_LDFLAGS' => [
-      '-force_load',
-      '$(SRCROOT)/Pods/TensorFlowLiteSelectTfOps/Frameworks/TensorFlowLiteSelectTfOps.xcframework/ios-arm64/TensorFlowLiteSelectTfOps.framework/TensorFlowLiteSelectTfOps',
-    ].join(' ')
-  }
+  s.pod_target_xcconfig = {'DEFINES_MODULE' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'i386',}
 
   s.swift_version = '5.0'
 end
