@@ -36,12 +36,16 @@ A new Flutter FFI plugin project.
       ARCH=$(uname -m)
       if [ "$ARCH" = "arm64" ]; then
         cp -f "${PODS_TARGET_SRCROOT}/libtensorflowlite_arm64_c.dylib" "${PODS_TARGET_SRCROOT}/libtensorflowlite_c.dylib"
+        cp -f "${PODS_TARGET_SRCROOT}/libtensorflowlite_arm64_gpu_delegate_c.dylib" "${PODS_TARGET_SRCROOT}/libtensorflowlite_gpu_delegate_c.dylib"
+        cp -f "${PODS_TARGET_SRCROOT}/libtensorflowlite_arm64_flex.dylib" "${PODS_TARGET_SRCROOT}/libtensorflowlite_flex.dylib"
       else
         cp -f "${PODS_TARGET_SRCROOT}/libtensorflowlite_x86_c.dylib" "${PODS_TARGET_SRCROOT}/libtensorflowlite_c.dylib"
       fi
     SCRIPT
   }
-  s.vendored_libraries = 'libtensorflowlite_c.dylib'
+  #install_name_tool -id @rpath/libtensorflowlite_gpu_delegate_c.dylib libtensorflowlite_gpu_delegate_c.dylib
+  s.vendored_libraries = 'libtensorflowlite_c.dylib', 'libtensorflowlite_gpu_delegate_c.dylib', 'libtensorflowlite_flex.dylib'
+  
   s.static_framework = true
 
   s.platform = :osx, '10.11'
