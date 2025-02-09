@@ -13,4 +13,5 @@ find ./bazel-out/ -type f -name "*.dylib"
 # rename and copy the output based on the current system
 cp $(find ./bazel-out/ -type f -name "*.dylib") ./libtensorflowlite_${ARCH}_c.dylib
 
-
+# change the linking name
+install_name_tool -id @rpath/libtensorflowlite_flex.dylib libtensorflowlite_${ARCH}_flex.dylib
