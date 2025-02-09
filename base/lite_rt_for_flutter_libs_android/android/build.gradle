@@ -1,6 +1,6 @@
 // The Android Gradle Plugin builds the native code with the Android NDK.
 
-group = "com.example.lite_rt_for_flutter_libs_flex_delegate"
+group = "com.example.lite_rt_for_flutter_libs_android"
 version = "1.0"
 
 buildscript {
@@ -25,7 +25,7 @@ rootProject.allprojects {
 apply plugin: "com.android.library"
 
 android {
-    namespace = "com.example.lite_rt_for_flutter_libs_flex_delegate"
+    namespace = "com.example.lite_rt_for_flutter_libs_android"
 
     // Bumping the plugin compileSdk version requires all clients of this plugin
     // to bump the version in their app.
@@ -60,11 +60,4 @@ android {
     defaultConfig {
         minSdk = 21
     }
-}
-
-dependencies {
-    def tflite_version = "2.16.1"
-    
-    //implementation("org.tensorflow:tensorflow-lite:${tflite_version}")
-    implementation("org.tensorflow:tensorflow-lite-select-tf-ops:${tflite_version}")
 }
