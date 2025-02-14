@@ -1,7 +1,6 @@
 name: lite_rt_for_flutter_libs_web_tfjs_tflite
 description: "A new Flutter plugin project."
-version: 0.0.1
-homepage:
+version: 0.0.1-alpha10
 
 environment:
   sdk: ^3.6.0
