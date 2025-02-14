@@ -43,6 +43,12 @@ A new Flutter FFI plugin project.
   }
   # include tf lite binary
   s.vendored_libraries = 'libtensorflowlite_c.dylib'
+  s.static_framework = true
+  s.user_target_xcconfig = {
+    'OTHER_LDFLAGS' => [
+      '-ltensorflowlite_c',
+    ].join(' ')
+  }
 
   s.platform = :osx, '10.11'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }

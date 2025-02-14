@@ -1,4 +1,12 @@
 # dynamic libraries
+# MACOS
 *.dylib
+# base libs
+!base/lite_rt_for_flutter_libs_macos/macos/libtensorflowlite_arm64_c.dylib
+!base/lite_rt_for_flutter_libs_macos/macos/libtensorflowlite_x86_c.dylib
+
+# linux
 *.so
+
+# windows
 *.dll
