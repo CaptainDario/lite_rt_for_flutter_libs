@@ -15,6 +15,6 @@ bazelisk build -c opt \
 
 find ./bazel-out/ -type f -name "*.dylib"
 
-cp $(find ./bazel-out/ -type f -name "*.dylib") ./tensorflowlite_${ARCH}_gpu.dylib
+cp $(find ./bazel-out/ -type f -name "*.dylib") ./libtensorflowlite_${ARCH}_gpu.dylib
 
 install_name_tool -id @rpath/libtensorflowlite_gpu.dylib libtensorflowlite_${ARCH}_gpu.dylib
