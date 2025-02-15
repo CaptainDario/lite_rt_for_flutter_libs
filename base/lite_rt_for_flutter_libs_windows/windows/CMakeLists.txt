@@ -16,18 +16,18 @@ add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/../src" "${CMAKE_CURRENT_BINARY_DI
 # This list could contain prebuilt libraries, or libraries created by an
 # external build triggered from this build file.
 message(STATUS "Detected processor architecture: ${CMAKE_SYSTEM_PROCESSOR}")
-if(CMAKE_SYSTEM_PROCESSOR STREQUAL "ARM64")
-    set(TFLITE_DLL ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_arm64_c.dll)
+if(CMAKE_SYSTEM_PROCESSOR STREQUAL "ARM64" OR
+    CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
+    set(LIB_TFLITE ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_arm64_c.dll)
 elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" OR
         CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64")
-    set(TFLITE_DLL ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_x86_c.dll)
+    set(LIB_TFLITE ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_x86_c.dll)
 endif()
-configure_file(${TFLITE_DLL} ${CMAKE_BINARY_DIR}/libtensorflowlite_c.dll COPYONLY)
+configure_file(${LIB_TFLITE} ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_c.dll COPYONLY)
 
 set(lite_rt_for_flutter_libs_windows_bundled_libraries
   # Defined in ../src/CMakeLists.txt.
   # This can be changed to accommodate different builds.
-  $<TARGET_FILE:lite_rt_for_flutter_libs_windows>
-  ${CMAKE_BINARY_DIR}/libtensorflowlite_c.dll
+  ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_c.dll
   PARENT_SCOPE
 )
