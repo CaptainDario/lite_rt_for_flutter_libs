@@ -73,10 +73,10 @@ jobs:
           env:
             ARCH: ${{ env.ARCH }}
           run: ./gpu/build_tf_lite_gpu_delegate_mac.sh
-        - name: Build TF Lite flex delegate
-          env:
-            ARCH: ${{ env.ARCH }}
-          run: ./flex/build_tf_lite_flex_delegate_mac.sh
+        #- name: Build TF Lite flex delegate
+        #  env:
+        #    ARCH: ${{ env.ARCH }}
+        #  run: ./flex/build_tf_lite_flex_delegate_mac.sh
 
         # TODO run test
 
@@ -90,7 +90,7 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: tensorflowlite_${{env.ARCH}}_gpu.dylib
-            path: ./tensorflow/tensorflowlite_${{env.ARCH}}_gpu.dylib
+            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_gpu.dylib
         - name: upload flex library to artifacts
           uses: actions/upload-artifact@v4
           with:
