@@ -1,4 +1,4 @@
-#include "lite_rt_for_flutter_libs_flex_delegate.h"
+#include "lite_rt_for_flutter_libs_flex_delegate_android.h"
 
 // A very short-lived native function.
 //
