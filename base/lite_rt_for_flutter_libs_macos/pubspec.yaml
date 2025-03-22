@@ -1,6 +1,7 @@
 name: lite_rt_for_flutter_libs_macos
 description: "A new Flutter FFI plugin project."
-version: 2.17.0
+version: 0.0.1
+homepage: https://github.com/CaptainDario/lite_rt_for_flutter_libs
 
 
 environment:

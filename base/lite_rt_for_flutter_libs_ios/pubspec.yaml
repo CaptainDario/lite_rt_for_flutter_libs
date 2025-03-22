@@ -1,7 +1,7 @@
 name: lite_rt_for_flutter_libs_ios
 description: "A new Flutter FFI plugin project."
 version: 0.0.1
-homepage:
+homepage: https://github.com/CaptainDario/lite_rt_for_flutter
 
 environment:
   sdk: ^3.6.0
