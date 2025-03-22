@@ -1,0 +1,1 @@
+export 'package:tflite_web/tflite_web.dart';
