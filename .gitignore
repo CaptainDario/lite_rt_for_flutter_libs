@@ -1,12 +1,22 @@
-# dynamic libraries
+# ignore dynamic libraries
 # MACOS
 *.dylib
-# base libs
+*.dll
+*.so
+# except necessary tf lite libs
+# base
+# linux
+!base/lite_rt_for_flutter_libs_linux/linux/libtensorflowlite_arm64_c.so
+!base/lite_rt_for_flutter_libs_linux/linux/libtensorflowlite_x86_c.so
+# macos
 !base/lite_rt_for_flutter_libs_macos/macos/libtensorflowlite_arm64_c.dylib
 !base/lite_rt_for_flutter_libs_macos/macos/libtensorflowlite_x86_c.dylib
-
-# linux
-*.so
-
 # windows
-*.dll
+!base/lite_rt_for_flutter_libs_windows/windows/libtensorflowlite_arm64_c.dll
+!base/lite_rt_for_flutter_libs_windows/windows/libtensorflowlite_x86_c.dll
+
+#core ml
+
+#flex
+
+# gpu
