@@ -73,10 +73,10 @@ jobs:
           env:
             ARCH: ${{ env.ARCH }}
           run: ./gpu/build_tf_lite_gpu_delegate_mac.sh
-        #- name: Build TF Lite flex delegate
-        #  env:
-        #    ARCH: ${{ env.ARCH }}
-        #  run: ./flex/build_tf_lite_flex_delegate_mac.sh
+        - name: Build TF Lite flex delegate
+          env:
+            ARCH: ${{ env.ARCH }}
+          run: ./flex/build_tf_lite_flex_delegate_mac.sh
 
         # TODO run test
 
