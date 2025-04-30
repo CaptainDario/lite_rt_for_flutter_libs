@@ -90,9 +90,9 @@ jobs:
           uses: actions/upload-artifact@v4
           with:
             name: tensorflowlite_${{env.ARCH}}_gpu.dylib
-            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_gpu.dylib
+            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.dylib
         - name: upload flex library to artifacts
           uses: actions/upload-artifact@v4
           with:
-            name: libtensorflowlite_${{env.ARCH}}_flex.dylib
-            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_flex.dylib
+            name: libtensorflowlite_${{env.ARCH}}_flex_delegate_c.dylib
+            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_flex_delegate_c.dylib
