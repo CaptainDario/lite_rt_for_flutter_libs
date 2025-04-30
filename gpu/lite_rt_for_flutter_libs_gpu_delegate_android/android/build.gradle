@@ -64,3 +64,10 @@ android {
         }
     }
 }
+
+
+dependencies {
+    def tflite_version = "2.16.1"
+    
+    implementation("org.tensorflow:tensorflow-lite-gpu:${tflite_version}")
+}
