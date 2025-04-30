@@ -20,3 +20,7 @@
 #flex
 
 # gpu
+
+# macos
+!gpu/lite_rt_for_flutter_libs_gpu_delegate_macos/macos/libtensorflowlite_arm64_gpu_delegate_c.dylib
+!gpu/lite_rt_for_flutter_libs_gpu_delegate_macos/macos/libtensorflowlite_x86_gpu_delegate_c.dylib

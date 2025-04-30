@@ -10,3 +10,11 @@ This repo contains the binaries and flutter libs to automatically include tf lit
 * GPU: GPU delegate
 
 See [lite_rt_for_flutter](https://github.com/CaptainDario/lite_rt_for_flutter) for usage instructions and platform support.
+
+## Building
+
+1. Set your current architecture
+   1. x86 -> ARCH=x86
+   2. arm64 -> ARCH=arm64
+2. From the top level directory run the build script
+   1. ./base/build_tf_lite_mac.sh

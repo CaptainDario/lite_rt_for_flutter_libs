@@ -1,6 +1,6 @@
 name: lite_rt_for_flutter_libs_gpu_delegate_macos
 description: "A new Flutter plugin project."
-version: 0.0.1
+version: 0.0.3
 homepage:
 
 environment:
