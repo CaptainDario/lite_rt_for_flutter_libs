@@ -74,17 +74,17 @@ jobs:
             ARCH: ${{ env.ARCH }}
           run: ./base/build_tf_lite_linux.sh
         
-        #- name: Build TF Lite gpu delegate
-        #  env:
-        #    ARCH: ${{ env.ARCH }}  
-        #  run: |
-        #    sudo apt install mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev mesa-utils
-        #    ./gpu/build_tf_lite_gpu_delegate_linux.sh
+        - name: Build TF Lite gpu delegate
+          env:
+            ARCH: ${{ env.ARCH }}  
+          run: |
+            sudo apt install mesa-common-dev libegl1-mesa-dev libgles2-mesa-dev mesa-utils
+            ./gpu/build_tf_lite_gpu_delegate_linux.sh
 
-        #- name: Build TF Lite flex delegate
-        #  env:
-        #    ARCH: ${{ env.ARCH }}
-        #  run: ./flex/build_tf_lite_flex_delegate_linux.sh
+        - name: Build TF Lite flex delegate
+          env:
+            ARCH: ${{ env.ARCH }}
+          run: ./flex/build_tf_lite_flex_delegate_linux.sh
 
         # TODO run test
 
@@ -94,13 +94,13 @@ jobs:
           with:
             name: libtensorflowlite_${{env.ARCH}}_c.so
             path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_c.so
-        #- name: upload gpu library to artifacts
-        #  uses: actions/upload-artifact@v4
-        #  with:
-        #    name: libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.so
-        #    path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.so
-        #- name: upload flex library to artifacts
-        #  uses: actions/upload-artifact@v4
-        #  with:
-        #    name: libtensorflowlite_${{env.ARCH}}_flex_delegate_c.so
-        #    path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_flex_delegate_c.so
+        - name: upload gpu library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.so
+            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.so
+        - name: upload flex library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: libtensorflowlite_${{env.ARCH}}_flex_delegate_c.so
+            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_flex_delegate_c.so
