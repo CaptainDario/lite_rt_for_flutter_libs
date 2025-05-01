@@ -11,7 +11,7 @@ bazelisk build -c opt \
 find ./bazel-out/ -type f -name "*.so"
 
 # rename and copy the output based on the current system
-cp $(find ./bazel-out/ -type f -name "*.so") "./libtensorflowlite_${ARCH}_c.so"
+cp $(find ./bazel-out/ -type f -name "*.so") "./libtensorflowlite_${ARCH}_flex_delegate_c.so"
 
 
 
