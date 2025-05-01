@@ -26,12 +26,12 @@ jobs:
     strategy:
       matrix:
         runner: 
-          #- os: windows-2022
-          #  env:
-          #    ARCH: x86
-          - os: windows-11-arm
+          - os: windows-2022
             env:
-              ARCH: arm64
+              ARCH: x86
+          #- os: windows-11-arm
+          #  env:
+          #    ARCH: arm64
 
     env:
       ARCH: ${{ matrix.runner.env.ARCH }}
