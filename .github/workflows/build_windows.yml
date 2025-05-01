@@ -68,11 +68,12 @@ jobs:
             git checkout ${{ github.event.inputs.tf_version }}
 
         # build tf lite
-        - name: Build TF Lite base
-          shell: bash
-          run: ./base/build_tf_lite_windows.sh
-        #- name: Build TF Lite gpu delegate
-        #  run: ./gpu/build_tf_lite_gpu_delegate_mac.sh
+        #- name: Build TF Lite base
+        #  shell: bash
+        #  run: ./base/build_tf_lite_windows.sh
+        - name: Build TF Lite gpu delegate
+          shell: bash  
+          run: ./gpu/build_tf_lite_gpu_delegate_windows.sh
         #- name: Build TF Lite flex delegate
         #  shell: bash
         #  run: ./flex/build_tf_lite_flex_delegate_windows.sh
@@ -80,16 +81,16 @@ jobs:
         # TODO run test
 
         # upload the build libs as an artifact
-        - name: upload base library to artifacts
-          uses: actions/upload-artifact@v4
-          with:
-            name: libtensorflowlite_${{env.ARCH}}_c.dll
-            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_c.dll
-        #- name: upload gpu library to artifacts
+        #- name: upload base library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:
-        #    name: tensorflow_lite_gpu_dylib.dylib
-        #    path: ./tensorflow/tensorflowlite_arm64_gpu.dylib
+        #    name: libtensorflowlite_${{env.ARCH}}_c.dll
+        #    path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_c.dll
+        - name: upload gpu library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: tensorflow_lite_gpu_dylib.dll
+            path: ./tensorflow/tensorflowlite_${{env.ARCH}}_gpu.dll
         #- name: upload flex library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:
