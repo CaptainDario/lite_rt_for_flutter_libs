@@ -8,5 +8,5 @@ bazelisk build -c opt --config=monolithic \
 
 find ./bazel-out/ -type f -name "*.dll"
 
-cp $(find ./bazel-out/ -type f -name "*.dll") ./libtensorflowlite_flex_x86.dll
+cp $(find ./bazel-out/ -type f -name "*.dll") ./libtensorflowlite_${ARCH}_flex_delegate_c.dll
 
