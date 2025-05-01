@@ -29,9 +29,9 @@ jobs:
           - os: windows-2022
             env:
               ARCH: x86
-          #- os: ubuntu-24.04-arm
-          #  env:
-          #    ARCH: arm64
+          - os: windows-11-arm
+            env:
+              ARCH: arm64
 
     env:
       ARCH: ${{ matrix.runner.env.ARCH }}
