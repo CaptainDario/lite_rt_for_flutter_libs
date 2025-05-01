@@ -26,12 +26,12 @@ jobs:
     strategy:
       matrix:
         runner: 
-          - os: windows-2022
-            env:
-              ARCH: x86
-          #- os: windows-11-arm
+          #- os: windows-2022
           #  env:
-          #    ARCH: arm64
+          #    ARCH: x86
+          - os: windows-11-arm
+            env:
+              ARCH: arm64
 
     env:
       ARCH: ${{ matrix.runner.env.ARCH }}
@@ -44,7 +44,7 @@ jobs:
             submodules: true
 
         # setup bazel
-        - uses: bazel-contrib/setup-bazel@0.13.0
+        - uses: bazel-contrib/setup-bazel@0.14.0
           with:
             # Avoid downloading Bazel every time.
             bazelisk-cache: true
