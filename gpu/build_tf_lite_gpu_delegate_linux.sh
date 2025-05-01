@@ -1,5 +1,7 @@
-cd tensorflow
+echo $ARCH
 
+# clean tensorflow build directory
+cd tensorflow
 bazelisk clean
 
 bazel build -c opt \
@@ -9,5 +11,5 @@ bazel build -c opt \
 
 find ./bazel-out/ -type f -name "*.so"
 
-cp $(find ./bazel-out/ -type f -name "*.so") ./tensorflowlite_gpu_x86.so
+cp $(find ./bazel-out/ -type f -name "*.so") ./ libtensorflowlite_${ARCH}_gpu_delegate_c.so
 

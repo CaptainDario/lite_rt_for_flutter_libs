@@ -1,4 +1,5 @@
 echo $ARCH
+
 # clean tensorflow build directory
 cd tensorflow
 bazelisk clean
