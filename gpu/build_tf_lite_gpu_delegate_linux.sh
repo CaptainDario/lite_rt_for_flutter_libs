@@ -11,5 +11,5 @@ bazel build -c opt \
 
 find ./bazel-out/ -type f -name "*.so"
 
-cp $(find ./bazel-out/ -type f -name "*.so") ./ libtensorflowlite_${ARCH}_gpu_delegate_c.so
+cp $(find ./bazel-out/ -type f -name "*.so") ./libtensorflowlite_${ARCH}_gpu_delegate_c.so
 
