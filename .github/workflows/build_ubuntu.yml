@@ -94,13 +94,13 @@ jobs:
         #  with:
         #    name: libtensorflowlite_${{env.ARCH}}_c.so
         #    path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_c.so
-        - name: upload gpu library to artifacts
-          uses: actions/upload-artifact@v4
-          with:
-            name: tensorflowlite_gpu_x86.so
-            path: ./tensorflow/tensorflowlite_gpu_x86.so
-        #- name: upload flex library to artifacts
+        #- name: upload gpu library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:
-        #    name: libtensorflowlite_flex_x86.so
-        #    path: ./tensorflow/libtensorflowlite_flex_x86.so
+        #    name: libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.so
+        #    path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.so
+        - name: upload flex library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: libtensorflowlite_${{env.ARCH}}_flex_delegate_c.so
+            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_flex_delegate_c.so
