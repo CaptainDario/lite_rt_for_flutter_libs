@@ -8,5 +8,5 @@ bazelisk build -c opt --config=monolithic \
 
 find ./bazel-out/ -type f -name "*.so"
 
-cp $(find ./bazel-out/ -type f -name "*.so") ./libtensorflowlite_flex_x86.so
+cp $(find ./bazel-out/ -type f -name "*.so") ./libtensorflowlite_${ARCH}_flex_delegate_c.so
 
