@@ -22,7 +22,7 @@ A new Flutter plugin project.
   s.dependency 'Flutter'
   s.platform = :ios, '12.0'
 
-  tflite_version = '2.17.0'
+  tflite_version = '2.16.1'
   s.dependency 'TensorFlowLiteSwift/CoreML', tflite_version
   s.static_framework = true
 

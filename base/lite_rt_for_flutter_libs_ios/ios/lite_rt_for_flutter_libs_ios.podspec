@@ -23,7 +23,7 @@ A new Flutter FFI plugin project.
   s.platform = :ios, '12.0'
 
   # get tf lite from cocoa
-  tflite_version = '2.17.0'
+  tflite_version = '2.16.1'
   s.dependency 'TensorFlowLiteSwift', tflite_version
   s.static_framework = true # this is important to make it work
 
