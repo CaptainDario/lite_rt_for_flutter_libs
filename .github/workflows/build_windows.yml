@@ -89,8 +89,8 @@ jobs:
         - name: upload gpu library to artifacts
           uses: actions/upload-artifact@v4
           with:
-            name: tensorflow_lite_gpu_dylib.dll
-            path: ./tensorflow/tensorflowlite_${{env.ARCH}}_gpu.dll
+            name: libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.dll
+            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.dll
         #- name: upload flex library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:

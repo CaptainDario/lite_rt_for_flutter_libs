@@ -9,3 +9,5 @@ cmake --build . -j 8 --config release
 
 ls -la
 ls debug/ -la
+
+cp ./Release/tensorflowlite_c.dll ../libtensorflowlite_${ARCH}_gpu_delegate_c.dll
