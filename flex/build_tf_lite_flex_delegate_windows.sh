@@ -4,6 +4,7 @@ bazelisk clean
 
 bazelisk build -c opt --config=monolithic \
   --repo_env=HERMETIC_PYTHON_VERSION=3.11 \
+  --copt=/std:c++20 \
   tensorflow/lite/delegates/flex:tensorflowlite_flex
 
 find ./bazel-out/ -type f -name "*.dll"
