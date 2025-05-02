@@ -22,7 +22,7 @@ A new Flutter plugin project.
   s.swift_version = '5.0'
 
   # get tf lite from cocoa
-  tflite_version = '2.16.1'
+  tflite_version = '2.17.0'
   s.dependency 'TensorFlowLiteSwift/Metal', tflite_version
   s.static_framework = true # this is important to make it work
 
