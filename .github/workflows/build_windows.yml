@@ -71,12 +71,12 @@ jobs:
         #- name: Build TF Lite base
         #  shell: bash
         #  run: ./base/build_tf_lite_windows.sh
-        - name: Build TF Lite gpu delegate
-          shell: bash  
-          run: ./gpu/build_tf_lite_gpu_delegate_windows.sh
-        #- name: Build TF Lite flex delegate
-        #  shell: bash
-        #  run: ./flex/build_tf_lite_flex_delegate_windows.sh
+        #- name: Build TF Lite gpu delegate
+        #  shell: bash  
+        #  run: ./gpu/build_tf_lite_gpu_delegate_windows.sh
+        - name: Build TF Lite flex delegate
+          shell: bash
+          run: ./flex/build_tf_lite_flex_delegate_windows.sh
 
         # TODO run test
 
@@ -86,13 +86,13 @@ jobs:
         #  with:
         #    name: libtensorflowlite_${{env.ARCH}}_c.dll
         #    path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_c.dll
-        - name: upload gpu library to artifacts
-          uses: actions/upload-artifact@v4
-          with:
-            name: libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.dll
-            path: ./libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.dll
-        #- name: upload flex library to artifacts
+        #- name: upload gpu library to artifacts
         #  uses: actions/upload-artifact@v4
         #  with:
-        #    name: libtensorflowlite_flex_x86.dll
-        #    path: ./tensorflow/libtensorflowlite_flex_x86.dll
+        #    name: libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.dll
+        #    path: ./libtensorflowlite_${{env.ARCH}}_gpu_delegate_c.dll
+        - name: upload flex library to artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            name: libtensorflowlite_${{env.ARCH}}_flex_delegate_c.dll
+            path: ./tensorflow/libtensorflowlite_${{env.ARCH}}_flex_delegate_c.dll
