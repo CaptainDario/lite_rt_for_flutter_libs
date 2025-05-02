@@ -5,7 +5,6 @@ bazelisk clean
 
 # build base rnutime and check it was successful
 bazelisk build -c opt \
-    --cpu=arm64_windows \
     --repo_env=HERMETIC_PYTHON_VERSION=3.11 \
     //tensorflow/lite/c:tensorflowlite_c
 find ./bazel-bin/ -type f -name "*.dll"
