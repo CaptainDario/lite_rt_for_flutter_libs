@@ -4,6 +4,7 @@ bazelisk clean
 
 bazelisk build -c opt --config=monolithic \
   --repo_env=HERMETIC_PYTHON_VERSION=3.11 \
+  --config=win_clang \
   --cxxopt='/std:c++20' \
   tensorflow/lite/delegates/flex:tensorflowlite_flex
 
