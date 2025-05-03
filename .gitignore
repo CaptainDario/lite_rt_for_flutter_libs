@@ -1,10 +1,10 @@
 # ignore dynamic libraries
-# MACOS
 *.dylib
 *.dll
 *.so
+
 # except necessary tf lite libs
-# base
+# BASE
 # linux
 !base/lite_rt_for_flutter_libs_linux/linux/libtensorflowlite_arm64_c.so
 !base/lite_rt_for_flutter_libs_linux/linux/libtensorflowlite_x86_c.so
@@ -15,10 +15,12 @@
 !base/lite_rt_for_flutter_libs_windows/windows/libtensorflowlite_arm64_c.dll
 !base/lite_rt_for_flutter_libs_windows/windows/libtensorflowlite_x86_c.dll
 
-#core ml
+# CoreML
 
-# gpu
+# GPU
+# linux
 
 # macos
 !gpu/lite_rt_for_flutter_libs_gpu_delegate_macos/macos/libtensorflowlite_arm64_gpu_delegate_c.dylib
 !gpu/lite_rt_for_flutter_libs_gpu_delegate_macos/macos/libtensorflowlite_x86_gpu_delegate_c.dylib
+# windows
