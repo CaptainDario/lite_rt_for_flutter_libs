@@ -24,6 +24,31 @@ A new Flutter plugin project.
 
   s.dependency 'FlutterMacOS'
 
+   # rename the dynamic library based on the current architecture
+   s.script_phase = {
+    :name => 'Select TensorFlow Lite Library',
+    :execution_position => :before_compile,
+    :script => <<-SCRIPT
+      ARCH=$(uname -m)
+      if [ "$ARCH" = "arm64" ]; then
+        unzip -o "${PODS_TARGET_SRCROOT}/libtensorflowlite_arm64_flex_delegate_c.dylib.zip" -d "${PODS_TARGET_SRCROOT}/"
+        cp -f "${PODS_TARGET_SRCROOT}/libtensorflowlite_arm64_flex_delegate_c.dylib" "${PODS_TARGET_SRCROOT}/libtensorflowlite_flex_delegate_c.dylib"
+      else
+        unzip -o "${PODS_TARGET_SRCROOT}/libtensorflowlite_x86_flex_delegate_c.dylib.zip" -d "${PODS_TARGET_SRCROOT}/"
+        cp -f "${PODS_TARGET_SRCROOT}/libtensorflowlite_x86_flex_delegate_c.dylib" "${PODS_TARGET_SRCROOT}/libtensorflowlite_flex_delegate_c.dylib"
+      fi
+    SCRIPT
+  }
+  # include tf lite binary
+  s.vendored_libraries = 'libtensorflowlite_flex_delegate_c.dylib'
+  s.static_framework = true
+  s.user_target_xcconfig = {
+    'OTHER_LDFLAGS' => [
+      '-ltensorflowlite_flex_delegate_c',
+      '$(inherited)'
+    ].join(' ')
+  }
+
   s.platform = :osx, '10.11'
   s.pod_target_xcconfig = { 'DEFINES_MODULE' => 'YES' }
   s.swift_version = '5.0'
