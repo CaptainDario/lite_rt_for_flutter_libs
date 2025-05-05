@@ -54,7 +54,7 @@ jobs:
             # Share repository cache between workflows.
             #repository-cache: true
 
-            output-base: C:/_bazel
+            #output-base: C:/_bazel
 
         # setup python 3.11
         - uses: actions/setup-python@v5
