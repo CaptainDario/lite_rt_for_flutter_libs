@@ -1,16 +1,21 @@
+# only worked in Msys2
+
 cd tensorflow
 
 bazelisk clean
 
-bazel build -c opt \ 
+export MSYS_NO_PATHCONV=1
+export MSYS2_ARG_CONV_EXCL="*"
+
+export PATH=" /f/bazelisk/:$PATH"
+export PATH="/c/Users/dario/AppData/Local/Programs/Python/Python311/:$PATH"
+
+/f/bazelisk/bazelisk.exe build -c opt \
   --config=monolithic \
   --repo_env=HERMETIC_PYTHON_VERSION=3.11 \
+  --config=win_clang \
+  --cxxopt='/std:c++17' \
   tensorflow/lite/delegates/flex:tensorflowlite_flex
-#bazelisk build -c opt --config=monolithic \
-#  --repo_env=HERMETIC_PYTHON_VERSION=3.11 \
-#  --cxxopt='/std:c++20' \
-#  tensorflow/lite/delegates/flex:tensorflowlite_flex
-  #--config=win_clang \
 
 find ./bazel-out/ -type f -name "*.dll"
 
