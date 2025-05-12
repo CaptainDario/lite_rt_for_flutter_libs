@@ -51,8 +51,18 @@ target_link_libraries(${PLUGIN_NAME} PRIVATE flutter flutter_wrapper_plugin)
 # List of absolute paths to libraries that should be bundled with the plugin.
 # This list could contain prebuilt libraries, or libraries created by an
 # external build triggered from this build file.
+message(STATUS "Detected processor architecture: ${CMAKE_SYSTEM_PROCESSOR}")
+if(CMAKE_SYSTEM_PROCESSOR STREQUAL "ARM64" OR
+    CMAKE_SYSTEM_PROCESSOR STREQUAL "aarch64")
+    set(LIB_TFLITE ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_arm64_flex_delegate_c.dll)
+elseif(CMAKE_SYSTEM_PROCESSOR STREQUAL "x86_64" OR
+        CMAKE_SYSTEM_PROCESSOR STREQUAL "AMD64")
+    set(LIB_TFLITE ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_x86_flex_delegate_c.dll)
+endif()
+configure_file(${LIB_TFLITE} ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_flex_delegate_c.dll COPYONLY)
+
 set(lite_rt_for_flutter_libs_flex_delegate_windows_bundled_libraries
-  ""
+  ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_flex_delegate_c.dll
   PARENT_SCOPE
 )
 
