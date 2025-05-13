@@ -3,6 +3,9 @@
 *.dll
 *.so
 
+# tensorflow compilation
+tflite_build/*
+
 # except necessary tf lite libs
 # BASE
 # linux

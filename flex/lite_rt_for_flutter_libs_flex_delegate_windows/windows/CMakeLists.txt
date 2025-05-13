@@ -66,6 +66,11 @@ set(lite_rt_for_flutter_libs_flex_delegate_windows_bundled_libraries
   PARENT_SCOPE
 )
 
+# force link the flex delegate
+target_link_libraries(${PLUGIN_NAME} PUBLIC
+  ${CMAKE_CURRENT_SOURCE_DIR}/libtensorflowlite_flex_delegate_c.dll
+)
+
 # === Tests ===
 # These unit tests can be run from a terminal after building the example, or
 # from Visual Studio after opening the generated solution file.
